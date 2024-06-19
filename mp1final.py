@@ -258,7 +258,8 @@ class MyGame(pyxelgrid.PyxelGrid[int]):
                 start_height,end_height=((i)*self.dim),((i+1)*self.dim)
                 start_width,end_width=((j)*self.dim),((j+1)*self.dim)
                 if self.mirror_bounds(start_width,end_width,start_height,end_height,bullet.x,bullet.y):
-                    bullet.origin="friendlyfire"
+                    if bullet.origin=="player":
+                        bullet.origin="friendlyfire"
                     bullet.vy = self.bullet_speed_y[direction_index]
                     bullet.vx = self.bullet_speed_x[direction_index]
             elif material.state=="southmirror":
@@ -269,7 +270,8 @@ class MyGame(pyxelgrid.PyxelGrid[int]):
                 start_height,end_height=((i)*self.dim),((i+1)*self.dim)
                 start_width,end_width=((j)*self.dim),((j+1)*self.dim)
                 if self.mirror_bounds(start_width,end_width,start_height,end_height,bullet.x,bullet.y):
-                    bullet.origin="friendlyfire"
+                    if bullet.origin=="player":
+                        bullet.origin="friendlyfire"
                     bullet.vy = self.bullet_speed_y[direction_index]
                     bullet.vx = self.bullet_speed_x[direction_index]
        
